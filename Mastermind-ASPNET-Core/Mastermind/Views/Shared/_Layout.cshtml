@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="@Resource.LangISOCode">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - @Resource.Mastermind</title>
+
+    <link rel="icon" href="~/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="~/css/site-bootstrap.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Links", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@Resource.Mastermind</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav ms-auto">
+                        @if (!(User?.Identity?.IsAuthenticated ?? false)) //Uniquement disponible lorsque le visiteur n’est pas connecté
+                         {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Member" asp-action="Create" asp-fragment="rules">@Resource.CreateProfil</a>
+                        </li>
+                         }
+                        else       //Uniquement disponible lorsque le membre est connecté
+                         {
+                            <a class="nav-link text-light" asp-area="" asp-controller="Member" asp-action="Filter" asp-route-id=userId asp-fragment="rules">@Resource.ModifyProfil</a>
+                         }
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="rules">@Resource.Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Game" asp-action="Index">@Resource.Play</a>
+                        </li>
+                        <li class="nav-item">
+                            <partial name="PartialLoginMenu" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="languages">
+                        <a asp-area="" asp-controller="Language" asp-action="Change" asp-route-lang="fr" asp-route-returnurl="@Context.Request.Path">Français</a> |
+                        <a asp-area="" asp-controller="Language" asp-action="Change" asp-route-lang="en" asp-route-returnurl="@Context.Request.Path">English</a>
+                    </div>
+                    &copy; Nelson Junior - @Resource.Mastermind -
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index">@Resource.Administration</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Placé à la fin du document pour un chargement plus rapide des pages -->
+    <!-- Ordre : jQuery, Popper.js, puis Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

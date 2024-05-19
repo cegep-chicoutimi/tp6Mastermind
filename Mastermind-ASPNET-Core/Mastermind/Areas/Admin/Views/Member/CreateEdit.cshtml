@@ -1,0 +1,127 @@
+﻿@model MemberCreateEditVM
+@{
+    string pageTitle = Resource.CreateNewAccount;
+    string buttonText = Resource.Create;
+    string formAction = "Create";
+
+    if(Model.Member.Id > 0)
+    {
+        pageTitle = Resource.EditMember;
+        buttonText = Resource.Edit;
+        formAction = "Edit";
+    }
+
+    ViewData["Title"] = pageTitle;  
+}
+
+<div id="create-member-page">
+    <div class="row">
+        <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
+            <div class="page-title">
+                <h2>@pageTitle</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="image-section">
+                <img src="~/img/Members/@Model.Member.ImagePath" alt="@Html.DisplayFor(model => Model.Member.Username)" class="img-thumbnail img-fluid" />
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-section">
+                <form asp-action="@formAction" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Member.Id" />
+                    <input type="hidden" asp-for="Member.ImagePath" />
+
+                    <div class="form-horizontal">
+                        <hr />
+                        <div class="form-group row">
+                            <label asp-for="Member.FullName" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Member.FullName" class="form-control" />
+                                <span asp-validation-for="Member.FullName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Member.Email" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Member.Email" class="form-control" />
+                                <span asp-validation-for="Member.Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Member.Username" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input asp-for="Member.Username" class="form-control" />
+                                <span asp-validation-for="Member.Username" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Member.Password" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="password" asp-for="Member.Password" class="form-control" />
+                                <span asp-validation-for="Member.Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="uploadfile" class="col-form-label col-md-3">@Resource.Image</label>
+                            <div class="col-md-9">
+                                <input type="file" id="uploadfile" name="uploadfile" accept=".jpg,.png,.gif" />
+                                <div>
+                                    <span asp-validation-for="Member.ImagePath" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Member.Role" class="col-form-label col-md-3"></label>
+                            <div class="col-md-9 gauche">
+                                <select asp-for="Member.Role" asp-items="@(new SelectList(Model.LesRoles, "Role"))" class="form-control">
+                                    <option value="0"></option>
+                                </select>
+                                <span asp-validation-for="Member.Role" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="@buttonText" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="links">
+            <a asp-area="Admin" asp-controller="Member" asp-action="List">@Resource.BackToMemberList</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        // Permet de désactiver la validation en AJAX du champs Name à tous les cliques du clavier
+        $.validator.setDefaults({
+            onkeyup: function () {
+                var originalKeyUp = $.validator.defaults.onkeyup;
+                var customKeyUp = function (element, event) {
+                    var usernameInput = $("#Username")[0];
+                    if (usernameInput === element && usernameInput.value !== "") {
+                        return false;
+                    }
+                    else {
+                        return originalKeyUp.call(this, element, event);
+                    }
+                }
+
+                return customKeyUp;
+            }()
+        });
+    </script>
+}

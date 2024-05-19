@@ -1,0 +1,72 @@
+﻿@model GameVM
+@{
+    ViewData["Title"] = Resource.Play;
+
+    /*
+     * Visuel inspiré de : https://github.com/jsk900/mastermind
+    */
+}
+
+@section Links
+{
+    <link rel="stylesheet" href="~/css/game.css" asp-append-version="true" />
+}
+
+<div id="game-page">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="game-container">
+                <partial name="PartialGame" model="@Model.Game" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="your-stats">
+                <h3>@Resource.statistics</h3>
+                <p>
+                    @Resource.gamesWon : @Model.StatsMember.GamesWon<br />
+                    @Resource.gamesLost :  @Model.StatsMember.GamesLost<br />
+                    @Resource.abandonedGames :  3<br />
+                    @Resource.fewerHits :  @Model.StatsMember.BestPerformance<br />
+                    @Resource.averageStrokes : 0</span>
+                </p>
+                <div id="piechart" class="chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/game.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawPieChart);
+
+        function drawPieChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Resultat', 'Quantite'],
+                ['@Resource.won', 20],
+                ['@Resource.lost', 70],
+                ['@Resource.abandoned', 3]
+            ]);
+
+            var options = {
+                fontSize: 14,
+                is3D: true,
+                responsive: true,
+                slices: [{ color: 'blue', offset: 0.1 }, { color: 'orange', offset: 0.1 }, { color: 'silver' }],
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+
+        window.onresize = function () {
+            // Redessiner les graphiques lorsque la fenêtre est redimentionnée
+            drawPieChart();
+        };
+    </script>
+}

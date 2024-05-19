@@ -1,0 +1,8 @@
+﻿@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    <a class="nav-link text-info" asp-area="" asp-controller="Auth" asp-action="Logout">@Resource.SignOut (@User.Identity.Name)</a>
+}
+else
+{
+    <a class="nav-link text-info" asp-area="" asp-controller="Auth" asp-action="Login">@Resource.SignIn</a>
+}

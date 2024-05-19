@@ -1,0 +1,51 @@
+html {
+    font-size: 16px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+#home-page {
+    text-align: left;
+}
+
+    #home-page h3 {
+        color: #000f62;
+    }
+
+    #home-page p {
+        text-align: justify;
+    }
+
+    #home-page .rules-link {
+        font-size: 0.8rem;
+        margin-top: 40px;
+    }
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+#message-page
+{
+    color:red;
+    font-style:italic;
+    font-weight: bold;
+}
+
+.RedirectToLogin {
+    margin-top:4%;
+    margin-bottom:4%;
+   background-color:darkblue;
+    color: yellow;
+    font-style: italic;
+    font-weight: bold;
+
+    font-size:larger;
+}

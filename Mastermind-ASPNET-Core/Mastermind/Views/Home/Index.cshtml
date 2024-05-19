@@ -1,0 +1,52 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = Resource.welcome;
+}
+
+<div id="home-page">
+    <div class="row mb-4">
+        <div class="col-12">
+            <img src="~/img/mastermind-banner.png" alt="Mastermind" class="img-fluid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a id="rules"></a>
+            <h3>@Resource.goal</h3>
+            <p>
+                @String.Format(Resource.goalText, @Model.NbColors, @Model.NbAttempts))
+            </p>
+
+            <h3>@Resource.begin</h3>
+            <p>
+                @String.Format(Resource.beginText, @Model.NbPositions);
+            </p>
+            <p>
+                <a asp-controller="Game" asp-action="Index" class="btn btn-primary">@Resource.Play</a>
+            </p>
+
+            <h3>@Resource.wrongCombination</h3>
+            <p>
+                @Resource.wrongCombinationText_0
+            </p>
+            <p>
+                @Resource.wrongCombinationText_1
+            </p>
+
+            <h3>@Resource.rightCombinaison</h3>
+            <p>
+                @Resource.rightCombinaisonText
+            </p>
+
+            <h3>@Resource.tips</h3>
+            <p>
+                @Resource.tipsText
+            </p>
+
+            <p class="rules-link">
+              @Resource.rulesInspired
+                <a href="https://www.regles-de-jeux.com/regle-du-mastermind/">https://www.regles-de-jeux.com/regle-du-mastermind/</a>
+            </p>
+        </div>
+    </div>
+</div>

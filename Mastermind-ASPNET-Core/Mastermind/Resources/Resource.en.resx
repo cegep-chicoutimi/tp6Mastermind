@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="abandoned" xml:space="preserve">
+    <value>Abandoned</value>
+  </data>
+  <data name="abandonedGames" xml:space="preserve">
+    <value>Abandoned games</value>
+  </data>
+  <data name="AccessDeniedChangeUserMsg" xml:space="preserve">
+    <value>Access denied, please log in with another user.</value>
+  </data>
+  <data name="AccessDeniedChangeUserMsg1" xml:space="preserve">
+    <value>Access denied, please log in with another user.</value>
+  </data>
+  <data name="AccessDeniedMsg" xml:space="preserve">
+    <value>Access denied, please log in.</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="AreYouSureDeleteItem" xml:space="preserve">
+    <value>Are you sure you want to delete this item?</value>
+  </data>
+  <data name="attemps" xml:space="preserve">
+    <value>Attemps</value>
+  </data>
+  <data name="averageStrokes" xml:space="preserve">
+    <value>Average strockes</value>
+  </data>
+  <data name="BackToHomepage" xml:space="preserve">
+    <value>Back to homepage</value>
+  </data>
+  <data name="BackToLoginPage" xml:space="preserve">
+    <value>Back to login page</value>
+  </data>
+  <data name="BackToMemberList" xml:space="preserve">
+    <value>Back to the members list</value>
+  </data>
+  <data name="begin" xml:space="preserve">
+    <value>start a Mastermind game</value>
+  </data>
+  <data name="beginText" xml:space="preserve">
+    <value>To get started, simply select "Play a game" by clicking on the button below or via the main menu.  You can then start making combination suggestions.  To do this, simply place {0} pieces in the first row at the very bottom.  First select the color, then target the position on the active blue line.</value>
+  </data>
+  <data name="colors" xml:space="preserve">
+    <value>Colors</value>
+  </data>
+  <data name="config" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="confirmChoices" xml:space="preserve">
+    <value>Confirm your choices</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>Create a new account</value>
+  </data>
+  <data name="CreateProfil" xml:space="preserve">
+    <value>Create a profil</value>
+  </data>
+  <data name="currentConfig" xml:space="preserve">
+    <value>Current configurations</value>
+  </data>
+  <data name="dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteMember" xml:space="preserve">
+    <value>Delete a member</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Édit</value>
+  </data>
+  <data name="EditAccount" xml:space="preserve">
+    <value>Edit your Account</value>
+  </data>
+  <data name="EditMember" xml:space="preserve">
+    <value>Edit a member</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="fewerHits" xml:space="preserve">
+    <value>Fewer hits</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="gameProgress" xml:space="preserve">
+    <value>Game in progress</value>
+  </data>
+  <data name="gamesLost" xml:space="preserve">
+    <value>Games lost</value>
+  </data>
+  <data name="gamesWon" xml:space="preserve">
+    <value>Games won</value>
+  </data>
+  <data name="globalSettings" xml:space="preserve">
+    <value>Global settings</value>
+  </data>
+  <data name="goal" xml:space="preserve">
+    <value>Mastermind's goal</value>
+  </data>
+  <data name="goalText" xml:space="preserve">
+    <value>The aim of Mastermind is to find the secret combination of {0} colors in a maximum of {1} moves. This secret combination is generated automatically when a new move is made. Note that the same color may be repeated in the hidden combination.</value>
+  </data>
+  <data name="Identification" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="Idwrong" xml:space="preserve">
+    <value>This member id does not exist.</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ImagePath" xml:space="preserve">
+    <value>Path to image</value>
+  </data>
+  <data name="InvalidEmailFormat" xml:space="preserve">
+    <value>Invalid email format</value>
+  </data>
+  <data name="InvalidUsernamePassword" xml:space="preserve">
+    <value>Invalid username and/or password</value>
+  </data>
+  <data name="ItemNotFoundControllerMsgM" xml:space="preserve">
+    <value>Cette {0} est introuvable.</value>
+  </data>
+  <data name="LangISOCode" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="lost" xml:space="preserve">
+    <value>Lost</value>
+  </data>
+  <data name="lostMessage" xml:space="preserve">
+    <value>You have lost</value>
+  </data>
+  <data name="Mastermind" xml:space="preserve">
+    <value>Mastermind</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>Member</value>
+  </data>
+  <data name="MemberList" xml:space="preserve">
+    <value>Member List</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="ModelLengthBetween" xml:space="preserve">
+    <value>{0} length must be between {2} and {1}</value>
+  </data>
+  <data name="ModelLengthLessThan" xml:space="preserve">
+    <value>{0} length must be less than {1}</value>
+  </data>
+  <data name="modelNumberAttemptsBetween" xml:space="preserve">
+    <value>You must choose between {1} and {2} attempts.</value>
+  </data>
+  <data name="modelNumberColorsBetween" xml:space="preserve">
+    <value>You must choose between {1} and {2} colors. </value>
+  </data>
+  <data name="modelNumberPositionsBetween" xml:space="preserve">
+    <value>You must choose between {1} and {2} positions.</value>
+  </data>
+  <data name="ModelRequired" xml:space="preserve">
+    <value>{0} is required</value>
+  </data>
+  <data name="ModifyProfil" xml:space="preserve">
+    <value>Modify your profile</value>
+  </data>
+  <data name="newGame" xml:space="preserve">
+    <value>New game</value>
+  </data>
+  <data name="NoItemFound" xml:space="preserve">
+    <value>No item found.</value>
+  </data>
+  <data name="numberAttempts" xml:space="preserve">
+    <value>Number of attempts</value>
+  </data>
+  <data name="numberColors" xml:space="preserve">
+    <value>Number of colors</value>
+  </data>
+  <data name="numberPositions" xml:space="preserve">
+    <value>Number of positions</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play a game</value>
+  </data>
+  <data name="positions" xml:space="preserve">
+    <value>Positions</value>
+  </data>
+  <data name="RedirectToLogin" xml:space="preserve">
+    <value>Once you've created/modified your account, you'll be redirected directly to the authentication page to "log in".</value>
+  </data>
+  <data name="replay" xml:space="preserve">
+    <value>Replay</value>
+  </data>
+  <data name="rightCombinaison" xml:space="preserve">
+    <value>If the combination is correct</value>
+  </data>
+  <data name="rightCombinaisonText" xml:space="preserve">
+    <value>You've completed the challenge and the secret combination is revealed. One of the sub-objectives is to succeed in as few moves as possible.</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Regulations</value>
+  </data>
+  <data name="rulesInspired" xml:space="preserve">
+    <value>Rules inspired by </value>
+  </data>
+  <data name="selectColors" xml:space="preserve">
+    <value>Choose your colors</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="statistics" xml:space="preserve">
+    <value>Your statistics</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="summary" xml:space="preserve">
+    <value>Summary of all parts</value>
+  </data>
+  <data name="tips" xml:space="preserve">
+    <value>Tips for deciphering the Mastermind's secret combination</value>
+  </data>
+  <data name="tipsText" xml:space="preserve">
+    <value>If you're nearing the end of the game and still haven't deciphered the secret combination, it's a good idea to compare the lines on which you've made the best scores. Lines with zero colors found can also be useful for eliminating colors once and for all.</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UsernameAlreadyExists" xml:space="preserve">
+    <value>Username already exists</value>
+  </data>
+  <data name="website" xml:space="preserve">
+    <value>Web site</value>
+  </data>
+  <data name="welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="won" xml:space="preserve">
+    <value>Won</value>
+  </data>
+  <data name="wonMessage" xml:space="preserve">
+    <value>You have won</value>
+  </data>
+  <data name="wrongCombination" xml:space="preserve">
+    <value>If the combination presented is incorrect</value>
+  </data>
+  <data name="wrongCombinationText_0" xml:space="preserve">
+    <value>If, in the proposal, one or more colored pieces are in the right combination but not in the right place, white markers will be placed in the right-hand part of the line.  If one or more colored pieces are in the right place, black markers are used. Note that the position of the markers is not linked to the position of the proposition.  Black markers are displayed first, then white.</value>
+  </data>
+  <data name="wrongCombinationText_1" xml:space="preserve">
+    <value>You continue in this way, proposing another proposition on the second line, taking into account the black and white markers. You have {0} propositions to decipher the code, otherwise you'll be declared the loser and the secret combination will be revealed. You can then analyze your game if you wish.</value>
+  </data>
+</root>

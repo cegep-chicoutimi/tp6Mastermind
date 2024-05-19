@@ -1,0 +1,53 @@
+﻿@model List<Member>
+@{
+    ViewData["Title"] = Resource.MemberList;
+}
+
+<div id="member-list-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>@Resource.MemberList</h2>
+            </div>
+            
+            <div class="CreateNewAccount">
+                <a asp-area="Admin" asp-controller="Member" asp-action="Create">@Resource.CreateNewAccount</a>
+            </div>
+
+            <table class="table table-sm table-bordered table-striped table-hover">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model[0].Username)</th>
+                    <th>@Html.DisplayNameFor(model => model[0].Email)</th>
+                    <th class="action">Actions</th>
+                </tr>
+                @if (Model.Count > 0)
+                {
+                    foreach (Member member in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => member.Username)</td>
+                            <td>@Html.DisplayFor(model => member.Email)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@member.Id">
+                                    <span class="edit-icon" data-id="1" title="@Resource.Edit"/>
+                                        <i class="fas fa-edit"></i>
+                                </a>   |
+                                <a asp-action="Delete" asp-route-id="@member.Id">
+                                    <span class="delete-icon" data-id="1" title="@Resource.Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2">@Resource.NoItemFound</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

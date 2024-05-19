@@ -1,0 +1,16 @@
+﻿@model SiteMessageVM
+@{
+    ViewData["Title"] = Resource.Message;
+}
+
+<div id="message-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>@Resource.Message</h2>
+            </div>
+
+            <p>@Model.Message</p>
+        </div>
+    </div>
+</div>
