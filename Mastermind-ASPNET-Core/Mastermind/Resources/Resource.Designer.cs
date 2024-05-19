@@ -385,6 +385,15 @@ namespace Mastermind.Resources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Votre graphique ne s&apos;affiche pas car vous n&apos;avez jouez aucune partie encore !.
+        /// </summary>
+        public static string GraphMessage {
+            get {
+                return ResourceManager.GetString("GraphMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Identification.
         /// </summary>
         public static string Identification {
@@ -741,6 +750,15 @@ namespace Mastermind.Resources {
         public static string statistics {
             get {
                 return ResourceManager.GetString("statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Vos stats ne s&apos;affichent pas car vous jouez sans être connecté.
+        /// </summary>
+        public static string StatMessage {
+            get {
+                return ResourceManager.GetString("StatMessage", resourceCulture);
             }
         }
         

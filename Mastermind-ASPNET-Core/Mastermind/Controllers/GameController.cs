@@ -121,47 +121,45 @@ namespace Mastermind.Controllers
         /// Pour recommencer une partie !
         /// </summary>
         /// <returns></returns>
-        public IActionResult Replay()
+        ///  [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Replay(IFormCollection collection)
         {
-            HttpContext.Session.Remove(SESSION_GAME_NAME);  //On supprime l'état actuel du jeu en session 
+            
 
-            return RedirectToAction("Index");   //pour créer un nouveau jeu éventuellement 
+            //essaie de récupérer un jeu en session et le désérialise si trouvé
+            string? currentJsonGame = HttpContext.Session.GetString("CurrentGame");
+            if (currentJsonGame != null)
+            {
+                DAL dal = new DAL();
+                Game? game = null;
+                game = JsonSerializer.Deserialize<Game>(currentJsonGame);
+
+                if (game != null)
+                {
+                    int memberId = GetMemberIdFromClaims();
+                    if (memberId != 0)
+                    {
+                        StatsMember statsMember = dal.StatsMemberFact.GetByMember(memberId);
+
+                        if (statsMember != null)
+                        {
+                            //Uniquement pour les joueurs membres  ayant déjà fait au moins une tentative
+                            if (game.CurrentPlayingRow > 1)
+                            {
+                                statsMember.GamesAbandoned++;
+                                dal.StatsMemberFact.save(statsMember);
+                            }
+                        }
+
+                    }
+
+                    HttpContext.Session.Remove(SESSION_GAME_NAME);  //On supprime l'état actuel du jeu en session 
+
+                }
+            }
+
+                    return RedirectToAction("Index");   //pour créer un nouveau jeu éventuellement 
         }
-
-        //public void UpdateStatisticsAfterGame(int memberId, bool gameWon, int numberOfAttempts)
-        //{
-        //    using (var dbContext = new YourDbContext())
-        //    {
-        //        // Récupérer les statistiques actuelles du membre
-        //        var memberStatistics = dbContext.Statistics.FirstOrDefault(s => s.MemberId == memberId);
-
-        //        if (memberStatistics == null)
-        //        {
-        //            // Si les statistiques du membre n'existent pas encore, les créer
-        //            memberStatistics = new Statistics { MemberId = memberId };
-        //            dbContext.Statistics.Add(memberStatistics);
-        //        }
-
-        //        // Mettre à jour le nombre de parties gagnées ou perdues
-        //        if (gameWon)
-        //        {
-        //            memberStatistics.GamesWon++;
-        //        }
-        //        else
-        //        {
-        //            memberStatistics.GamesLost++;
-        //        }
-
-        //        // Mettre à jour la meilleure performance si nécessaire
-        //        if (memberStatistics.BestPerformance == null || numberOfAttempts < memberStatistics.BestPerformance)
-        //        {
-        //            memberStatistics.BestPerformance = numberOfAttempts;
-        //        }
-
-        //        // Sauvegarder les changements dans la base de données
-        //        dbContext.SaveChanges();
-        //    }
-        //}
-
     }
 }

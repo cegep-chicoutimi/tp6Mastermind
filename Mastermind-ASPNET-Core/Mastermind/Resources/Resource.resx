@@ -225,6 +225,9 @@
   <data name="goalText" xml:space="preserve">
     <value>Le but du Mastermind est de trouver la combinaison secrète composée de {0} couleurs dans un maximum de {1} coups. Cette combinaison secrète est générée automatiquement lors d'une nouvelle   Prendre note qu'une même couleur peut se répéter dans la combinaison cachée.</value>
   </data>
+  <data name="GraphMessage" xml:space="preserve">
+    <value>Votre graphique ne s'affiche pas car vous n'avez jouez aucune partie encore !</value>
+  </data>
   <data name="Identification" xml:space="preserve">
     <value>Identification</value>
   </data>
@@ -344,6 +347,9 @@
   </data>
   <data name="statistics" xml:space="preserve">
     <value>Vos statistiques</value>
+  </data>
+  <data name="StatMessage" xml:space="preserve">
+    <value>Vos stats ne s'affichent pas car vous jouez sans être connecté</value>
   </data>
   <data name="summary" xml:space="preserve">
     <value>Sommaire de toutes les parties</value>

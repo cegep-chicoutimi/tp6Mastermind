@@ -15,14 +15,16 @@ namespace Mastermind.DataAccessLayer.Factories
             int memberId = (int)reader["MemberId"];
             int gamesWon = (int)reader["GamesWon"];
             int gamesLost = (int)reader["GamesLost"];
+            int gamesAbandoned = (int)reader["GamesAbandoned"];
             int bestPerformance = (int)reader["BestPerformance"];
+            int NombreCoups = (int)reader["NombreCoups"];
 
-            return new StatsMember(id, memberId, gamesWon, gamesLost, bestPerformance);
+            return new StatsMember(id, memberId, gamesWon, gamesLost, gamesAbandoned, bestPerformance, NombreCoups);
         }
 
         public override StatsMember CreateEmpty()
         {
-            return new StatsMember(0, 0, 0, 0, 0);
+            return new StatsMember(0, 0, 0, 0, 0, 0, 0);
         }
 
         public StatsMember? GetByMember(int memberId)
@@ -40,20 +42,23 @@ namespace Mastermind.DataAccessLayer.Factories
 
             if(statsMember.Id == 0)
             {
-                commandText = "INSERT INTO `tp6_statsmembre` (`MemberId`, `GamesWon`, `GamesLost`, `BestPerformance`) " +
-                    "VALUES (@MemberId, @GameWon, @GameLost, @BestPerfomance)";
+                commandText = "INSERT INTO `tp6_statsmembre` (`MemberId`, `GamesWon`, `GamesLost`, `GamesAbandoned`, `NombreCoups`,`BestPerformance`) " +
+                    "VALUES (@MemberId, @GameWon, @GameLost, @GamesAbandoned, @NombreCoups, @BestPerformance)";
             }
             else
             {
                 commandText = "update tp6_statsmembre " +
-                    "SET MemberId = @MemberId, GamesWon = @GamesWon, GamesLost = @GamesLost, BestPerformance = @BestPerformance where Id = @Id";
+                    "SET MemberId = @MemberId, GamesWon = @GamesWon, GamesLost = @GamesLost," +
+                    " GamesAbandoned = @GamesAbandoned, NombreCoups = @NombreCoups, BestPerformance = @BestPerformance where Id = @Id";
 
                 sqlParams.Add(new MySqlParameter("@Id", statsMember.Id));
             }
 
             sqlParams.Add(new MySqlParameter("@MemberId", statsMember.MemberId));
-            sqlParams.Add(new MySqlParameter("@GameWon", statsMember.GamesWon));
-            sqlParams.Add(new MySqlParameter("@GameLost", statsMember.GamesLost));
+            sqlParams.Add(new MySqlParameter("@GamesWon", statsMember.GamesWon));
+            sqlParams.Add(new MySqlParameter("@GamesLost", statsMember.GamesLost));
+            sqlParams.Add(new MySqlParameter("@GamesAbandoned", statsMember.GamesAbandoned));
+            sqlParams.Add(new MySqlParameter("@NombreCoups", statsMember.NombreCoups));
             sqlParams.Add(new MySqlParameter("@BestPerformance", statsMember.BestPerformance));
 
             ExecuteNonQuery(statsMember, commandText, sqlParams);
@@ -82,16 +87,23 @@ namespace Mastermind.DataAccessLayer.Factories
 
                     if (statsMember.BestPerformance == null || statsMember.BestPerformance == 0 || nombreTentatives < statsMember.BestPerformance)
                     {
-                        statsMember.BestPerformance = nombreTentatives;
+                        statsMember.BestPerformance = nombreTentatives;     //Si on a pour ce membre de une nouvelle meilleure performance
                     }
                 }
-                else
+                else if (game.State == Game.GameState.ComputerWin)
                 {
                     statsMember.GamesLost++;
+                   
                 }
 
-                save(statsMember);  
-               
+                if(statsMember.MemberId != 0)   //On sauvegarde uniquement les stats des joueurs présents dans la BD comme "membre"
+                {
+                    if (game.CurrentPlayingRow == 10)
+                        save(statsMember);
+                    else
+                        game.CurrentPlayingRow++;
+                }
+                
             }
         }
 

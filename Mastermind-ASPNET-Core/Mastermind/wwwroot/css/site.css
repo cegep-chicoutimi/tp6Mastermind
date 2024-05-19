@@ -49,3 +49,10 @@ body {
 
     font-size:larger;
 }
+
+#abandonedText {
+    background-color: darkblue;
+    color: yellow;
+    font-style: italic;
+    font-weight: bold;
+}

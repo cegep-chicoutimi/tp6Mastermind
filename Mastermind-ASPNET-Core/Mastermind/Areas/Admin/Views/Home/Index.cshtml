@@ -1,4 +1,4 @@
-﻿@model HomeVM
+﻿@model GameVM
 @{
     ViewData["Title"] = Resource.dashboard;
 }
@@ -9,6 +9,10 @@
             <div class="page-title">
                 <h2>@Resource.dashboard</h2>
             </div>
+            @if (Model.StatsMember.Id == 0)
+            {
+                <div class="page-title"> <h3 id="abandonedText">@Resource.GraphMessage</h3></div>
+            }
         </div>
     </div>
 
@@ -39,9 +43,9 @@
         function drawBarChart() {
             var data = google.visualization.arrayToDataTable([
                 ["Element", "Valeur", { role: "style" } ],
-                ["@Resource.colors", @Model.NbColors, "color: gold"],
-                ["@Resource.positions", @Model.NbPositions, "color: orange"],
-                ["@Resource.attemps", @Model.NbAttempts, "color: blue"]
+                ["@Resource.colors", @Model.Game.NbColors, "color: gold"],
+                ["@Resource.positions", @Model.Game.NbPositions, "color: orange"],
+                ["@Resource.attemps", @Model.Game.NbAttempts, "color: blue"]
             ]);
 
             var view = new google.visualization.DataView(data);
@@ -67,9 +71,9 @@
         function drawPieChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Resultat', 'Quantite'],
-                ['@Resource.won', 20],
-                ['@Resource.lost', 40],
-                ['@Resource.abandoned', 10]
+                ['@Resource.won', @Model.StatsMember.GamesWon],
+                ['@Resource.lost', @Model.StatsMember.GamesLost],
+                ['@Resource.abandoned', @Model.StatsMember.GamesAbandoned]
             ]);
 
             var options = {

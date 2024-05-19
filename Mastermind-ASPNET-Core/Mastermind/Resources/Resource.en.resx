@@ -225,6 +225,9 @@
   <data name="goalText" xml:space="preserve">
     <value>The aim of Mastermind is to find the secret combination of {0} colors in a maximum of {1} moves. This secret combination is generated automatically when a new move is made. Note that the same color may be repeated in the hidden combination.</value>
   </data>
+  <data name="GraphMessage" xml:space="preserve">
+    <value>Your graph is not displayed because you haven't played any games yet!</value>
+  </data>
   <data name="Identification" xml:space="preserve">
     <value>Identification</value>
   </data>
@@ -344,6 +347,9 @@
   </data>
   <data name="statistics" xml:space="preserve">
     <value>Your statistics</value>
+  </data>
+  <data name="StatMessage" xml:space="preserve">
+    <value>Your stats are not displayed because you are playing without being logged in</value>
   </data>
   <data name="String1" xml:space="preserve">
     <value />

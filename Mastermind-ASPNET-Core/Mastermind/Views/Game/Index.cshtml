@@ -21,15 +21,22 @@
         </div>
         <div class="col-md-6">
             <div class="your-stats">
-                <h3>@Resource.statistics</h3>
-                <p>
-                    @Resource.gamesWon : @Model.StatsMember.GamesWon<br />
-                    @Resource.gamesLost :  @Model.StatsMember.GamesLost<br />
-                    @Resource.abandonedGames :  3<br />
-                    @Resource.fewerHits :  @Model.StatsMember.BestPerformance<br />
-                    @Resource.averageStrokes : 0</span>
-                </p>
-                <div id="piechart" class="chart"></div>
+                @if(Model.StatsMember.MemberId != 0)
+                {<h3>@Resource.statistics</h3>
+                    <p>
+                        @Resource.gamesWon : @Model.StatsMember.GamesWon<br />
+                        @Resource.gamesLost :  @Model.StatsMember.GamesLost<br />
+                        @Resource.abandonedGames :  @Model.StatsMember.GamesAbandoned<br />
+                        @Resource.fewerHits :  @Model.StatsMember.BestPerformance<br />
+                        @Resource.averageStrokes : @Model.StatsMember.NombreCoups
+                    </p>
+                 <div id="piechart" class="chart"></div>
+                }
+                else
+                {
+                <h3 id="abandonedText">@Resource.StatMessage</h3>
+                }
+                
             </div>
         </div>
     </div>
@@ -48,9 +55,9 @@
 
             var data = google.visualization.arrayToDataTable([
                 ['Resultat', 'Quantite'],
-                ['@Resource.won', 20],
-                ['@Resource.lost', 70],
-                ['@Resource.abandoned', 3]
+                ['@Resource.won', @Model.StatsMember.GamesWon],
+                ['@Resource.lost', @Model.StatsMember.GamesLost],
+                ['@Resource.abandoned', @Model.StatsMember.GamesAbandoned]
             ]);
 
             var options = {

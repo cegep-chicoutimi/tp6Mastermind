@@ -129,5 +129,8 @@
             </div>
         </div>
     }
-    <a asp-action="Replay">@Resource.newGame</a>
+    <form asp-action="Replay" enctype="multipart/form-data">
+        <button type="submit" class="btn btn-sm btn-primary">@Resource.newGame</button>
+   </form>
+        
 </div>
